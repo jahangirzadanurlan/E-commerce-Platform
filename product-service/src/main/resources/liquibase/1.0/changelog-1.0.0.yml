@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: createProductTable
+      author: Nurlan Jahangirzada
+      changes:
+        - createTable:
+            tableName: product
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: title
+                  type: varchar(255)
+              - column:
+                  name: description
+                  type: text
+              - column:
+                  name: price
+                  type: double
+              - column:
+                  name: rating
+                  type: double
+              - column:
+                  name: stock
+                  type: integer
+              - column:
+                  name: brand
+                  type: varchar(255)
+              - column:
+                  name: category
+                  type: varchar(255)
+              - column:
+                  name: thumbnail
+                  type: bytea
+

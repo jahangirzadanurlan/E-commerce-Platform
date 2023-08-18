@@ -1,0 +1,14 @@
+spring:
+  datasource:
+    username: postgres
+    password: root
+    url: jdbc:postgresql://localhost:5432/product
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+  liquibase:
+    change-log: classpath:liquibase/changelog-master.yml
+    default-schema: ms_payment
+    enabled: true
+
