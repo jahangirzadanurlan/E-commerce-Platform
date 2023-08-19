@@ -9,9 +9,10 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.RequiredArgsConstructor;
 import org.json.JSONObject;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.net.URISyntaxException;
 import java.util.List;
 
 @Service
@@ -23,15 +24,15 @@ public class WholesaleProductService implements IWholesaleProductService {
 
 
     @Override
-    public List<WholesaleProduct> getAllProducts() throws JsonProcessingException, URISyntaxException {
+    public Page<WholesaleProduct> getAllProducts(Pageable pageable) throws JsonProcessingException {
         if (wholesaleProductRepository.findAll().isEmpty()){
             saveWholesaleProducts();
         }
-        return wholesaleProductRepository.findAll();
+        return wholesaleProductRepository.findAll(pageable);
     }
 
     @Override
-    public WholesaleProduct getProductByTitle(String title) throws URISyntaxException, JsonProcessingException {
+    public WholesaleProduct getProductByTitle(String title) throws JsonProcessingException {
         if (wholesaleProductRepository.findAll().isEmpty()){
             saveWholesaleProducts();
         }
@@ -39,7 +40,7 @@ public class WholesaleProductService implements IWholesaleProductService {
                 .orElseThrow(() -> new RuntimeException("Wholesale product not found"));
     }
 
-    public void saveWholesaleProducts() throws JsonProcessingException, URISyntaxException {
+    public void saveWholesaleProducts() throws JsonProcessingException {
         String json=productServiceClient.getProducts();
 
         JSONObject jsonObject=new JSONObject(json);

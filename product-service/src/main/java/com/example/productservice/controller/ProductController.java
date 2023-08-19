@@ -5,10 +5,10 @@ import com.example.productservice.model.entity.MarketProduct;
 import com.example.productservice.model.entity.WholesaleProduct;
 import com.example.productservice.service.IMarketProductService;
 import com.example.productservice.service.IWholesaleProductService;
-import com.example.productservice.service.ProductServiceClient;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -19,14 +19,13 @@ import java.util.List;
 @RestController
 @RequiredArgsConstructor
 public class ProductController {
-    private final ProductServiceClient productServiceClient;
     private final IWholesaleProductService wholesaleProductService;
     private final IMarketProductService marketProductService;
 
 
-    @GetMapping("/wholesale-products")
-    public List<WholesaleProduct> getWholesaleProducts() throws JsonProcessingException, URISyntaxException {
-        return wholesaleProductService.getAllProducts();
+    @GetMapping("/wholesale-products")//For example: http://localhost:8080/wholesale-products?page=1&size=10
+    public Page<WholesaleProduct> getWholesaleProducts(Pageable pageable) throws JsonProcessingException, URISyntaxException {
+        return wholesaleProductService.getAllProducts(pageable);
     }
 
     @GetMapping("/wholesale-product")

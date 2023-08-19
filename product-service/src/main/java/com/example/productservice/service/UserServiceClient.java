@@ -1,11 +1,15 @@
 package com.example.productservice.service;
 
+import com.example.productservice.model.dto.request.DepositSellPriceDto;
 import com.example.productservice.model.dto.request.ProductDto;
+import com.example.productservice.model.dto.response.ResponseDto;
 import com.example.productservice.model.dto.response.UserResponseDto;
 import com.example.productservice.model.entity.User;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 
@@ -17,4 +21,7 @@ public interface UserServiceClient {
 
     @PostMapping("/check-user")
     User checkHasUser(@RequestHeader(HttpHeaders.AUTHORIZATION) String authHeader);
+
+    @PutMapping("/sell-deposit")
+    ResponseEntity<ResponseDto> depositMoneyWithSelling(@RequestBody DepositSellPriceDto depositSellPriceDto);
 }

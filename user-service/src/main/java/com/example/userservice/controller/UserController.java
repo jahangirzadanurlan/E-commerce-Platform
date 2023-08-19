@@ -1,6 +1,7 @@
 package com.example.userservice.controller;
 
 import com.example.userservice.model.dto.request.DepositRequestDto;
+import com.example.userservice.model.dto.request.DepositSellPriceDto;
 import com.example.userservice.model.dto.request.ProductDto;
 import com.example.userservice.model.dto.response.ResponseDto;
 import com.example.userservice.model.dto.response.UserResponseDto;
@@ -33,5 +34,10 @@ public class UserController {
     @PutMapping("/deposit")
     public ResponseEntity<ResponseDto> depositMoney(@RequestBody DepositRequestDto depositRequestDto){
         return userService.depositMoney(depositRequestDto);
+    }
+
+    @PutMapping("/sell-deposit")
+    public ResponseEntity<ResponseDto> depositMoneyWithSelling(@RequestBody DepositSellPriceDto depositSellPriceDto){
+        return userService.depositMoneyWithSelling(depositSellPriceDto);
     }
 }

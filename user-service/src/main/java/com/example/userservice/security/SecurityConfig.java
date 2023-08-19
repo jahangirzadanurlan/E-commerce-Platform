@@ -32,7 +32,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                                 .antMatchers("/app/**").permitAll()
                                 .antMatchers("/swagger-ui/**").permitAll()
                                 .antMatchers(HttpMethod.POST,"/auth" ).permitAll()
-                                .antMatchers("/products").hasRole(RoleType.USER.name())
                                 .anyRequest().authenticated()
                 )
                 .sessionManagement(sessionManagement ->

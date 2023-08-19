@@ -2,6 +2,7 @@ package com.example.userservice.service.impl;
 
 import com.example.userservice.exception.ApplicationException;
 import com.example.userservice.model.dto.request.DepositRequestDto;
+import com.example.userservice.model.dto.request.DepositSellPriceDto;
 import com.example.userservice.model.dto.request.ProductDto;
 import com.example.userservice.model.dto.response.ResponseDto;
 import com.example.userservice.model.dto.response.UserResponseDto;
@@ -43,6 +44,19 @@ public class UserService implements IUserService {
             return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(new ResponseDto("User Password is wrong! "));
         }
     }
+
+    @Override
+    public ResponseEntity<ResponseDto> depositMoneyWithSelling(DepositSellPriceDto depositSellPriceDto) {
+        Optional<User> user = userRepository.findUserByUsernameOrEmail(depositSellPriceDto.getUsername());
+        if (user.isEmpty()){
+            throw new ApplicationException(Exceptions.USER_NOT_FOUND_EXCEPTION);
+        }
+
+        walletService.increaseBalance(depositSellPriceDto.getMoney(),user.get());
+        return ResponseEntity.ok().body(new ResponseDto(depositSellPriceDto.getMoney() + " was added to " + depositSellPriceDto.getUsername() + " balance"));
+
+    }
+
 
     public UserResponseDto checkUser(String authHeader, ProductDto productDto) {
         if (!securityHelper.authHeaderIsValid(authHeader)) {

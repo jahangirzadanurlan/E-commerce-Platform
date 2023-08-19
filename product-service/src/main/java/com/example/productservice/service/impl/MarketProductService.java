@@ -34,7 +34,7 @@ public class MarketProductService implements IMarketProductService {
 
     @Override
     public List<MarketProduct> getAllProducts() {
-        return marketProductRepository.findAll();
+        return marketProductRepository.findAllByStatusIsTrue();
     }
 
     @Override

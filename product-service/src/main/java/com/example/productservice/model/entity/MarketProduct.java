@@ -20,6 +20,7 @@ public class MarketProduct {
     String title;
     @Builder.Default
     boolean status = true;
+    boolean sellStatus;
     String description;
     double price;
     double rating;
