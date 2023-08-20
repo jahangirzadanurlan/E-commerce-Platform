@@ -1,6 +1,5 @@
 # E-commerce Platform Microservices Project
 
-![E-commerce Banner](https://some-image-link.com)
 
 ## Overview
 
@@ -39,12 +38,12 @@ This is an e-commerce platform built using a microservices architecture. The pla
 
 1. **Clone the Repository**
     ```bash
-    git clone https://github.com/yourusername/your-repo-name.git
+    git clone [https://github.com/yourusername/your-repo-name.git](https://github.com/jahangirzadanurlan/E-commerce-Platform.git)
     ```
 
 2. **Navigate to Project Directory**
     ```bash
-    cd your-repo-name
+    cd E-commerce-Platform
     ```
 
 3. **Build the Project**
@@ -59,10 +58,11 @@ This is an e-commerce platform built using a microservices architecture. The pla
 
 ## How To Use :book:
 
-1. Register a new user at `localhost:8080/register`.
-2. Browse available wholesale products at `localhost:8080/wholesale-products`.
-3. Purchase products to resell on `localhost:8080/market-products`.
-4. Automated tasks will simulate sales at predefined intervals.
+1. Register a new user at `localhost:8080/user/auth/registration`.
+2. Browse available wholesale products at `localhost:8080/product/wholesale-products`.
+3. Buy product `localhost:8080/product/buy-product`.
+4. Purchase products to resell on `localhost:8080/product/market-products`.
+5. Automated tasks will simulate sales at predefined intervals.
 
 ## Contributing :handshake:
 
@@ -73,8 +73,6 @@ This is an e-commerce platform built using a microservices architecture. The pla
 5. Open a Pull Request.
 
 ---
-
-Give this project a :star: if you found it useful!
 
 
 
