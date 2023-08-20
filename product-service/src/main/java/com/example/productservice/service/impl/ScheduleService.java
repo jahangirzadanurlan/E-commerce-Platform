@@ -20,7 +20,7 @@ public class ScheduleService {
 
 
     @Scheduled(initialDelay = 10 * 60 *1000, fixedRate = 20 * 60 *1000) //Every  20 minute
-    public void chaneSellStatus(){
+    public void changeSellStatus(){
         List<MarketProduct> products = marketProductRepository.findAllByStatusIsTrue();
 
         if (products.isEmpty()){
