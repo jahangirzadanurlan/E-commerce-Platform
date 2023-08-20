@@ -9,8 +9,8 @@ This is an e-commerce platform built using a microservices architecture. The pla
 
 - **External API Integration**: Fetches products from an external API.
 - **Spring Security and JWT**: Handles user registration, authentication, and logout.
-- **Wholesale Products**: Users can browse wholesale products at `localhost:8080/wholesale-products`.
-- **Resale Capabilities**: Users can resell purchased products, appearing at `localhost:8080/market-products`.
+- **Wholesale Products**: Users can browse wholesale products at `localhost:8080/product/wholesale-products`.
+- **Resale Capabilities**: Users can resell purchased products, appearing at `localhost:8080/product/market-products`.
 - **Automated Sale Simulation**: Scheduled tasks to simulate product sales.
 
 ## Built With :hammer:
