@@ -1,33 +1,32 @@
-# E-commerce-Platform
-
 # E-commerce Platform Microservices Project
 
 ![E-commerce Banner](https://some-image-link.com)
 
 ## Overview
 
-This is an e-commerce platform crafted with a microservices architecture. It facilitates users in buying wholesale products and reselling them in their personalized marketplace.
+This is an e-commerce platform built using a microservices architecture. The platform enables users to purchase wholesale products and resell them in a personalized marketplace.
 
-## :sparkles: Features
+## Features :star:
 
-- :earth_americas: Fetch Products from External API
-- :lock: User Authentication with Spring Security and JWT
-- :shopping_cart: Browse Wholesale Products
-- :dollar: Resell Products
-- :alarm_clock: Automated Sale Simulation
+- **External API Integration**: Fetches products from an external API.
+- **Spring Security and JWT**: Handles user registration, authentication, and logout.
+- **Wholesale Products**: Users can browse wholesale products at `localhost:8080/wholesale-products`.
+- **Resale Capabilities**: Users can resell purchased products, appearing at `localhost:8080/market-products`.
+- **Automated Sale Simulation**: Scheduled tasks to simulate product sales.
 
-## :wrench: Built With
+## Built With :hammer:
 
-- **JDK 11**: Java Development Kit
-- **Gradle**: Build and Dependency Management
-- **Spring Boot**: Application Framework
-- **PostgreSQL**: Database
-- **Liquibase**: Database Migrations
-- **Eureka Server**: Service Discovery
-- **Application Gateway**: API Gateway
-- **Docker**: Containerization
+- **Microservices Architecture**: Designed with a microservices approach.
+- **JDK 11**: The project is built using JDK 11.
+- **Gradle**: Gradle is used for dependency management.
+- **Spring Boot**: Used for the backend framework.
+- **PostgreSQL**: Utilized for the database.
+- **Liquibase**: Handles database migrations.
+- **Eureka Server**: For service discovery.
+- **Application Gateway**: Serves as the API gateway.
+- **Docker**: The project includes Dockerfile and docker-compose.yml for containerization.
 
-## :rocket: Quick Start
+## Getting Started :rocket:
 
 ### Prerequisites
 
@@ -36,11 +35,46 @@ This is an e-commerce platform crafted with a microservices architecture. It fac
 - Docker
 - PostgreSQL
 
-### Installation & Running
+### Installation
 
 1. **Clone the Repository**
-   ```bash
-   git clone https://github.com/yourusername/your-repo-name.git
+    ```bash
+    git clone https://github.com/yourusername/your-repo-name.git
+    ```
+
+2. **Navigate to Project Directory**
+    ```bash
+    cd your-repo-name
+    ```
+
+3. **Build the Project**
+    ```bash
+    gradle build
+    ```
+
+4. **Run Docker Compose**
+    ```bash
+    docker-compose up
+    ```
+
+## How To Use :book:
+
+1. Register a new user at `localhost:8080/register`.
+2. Browse available wholesale products at `localhost:8080/wholesale-products`.
+3. Purchase products to resell on `localhost:8080/market-products`.
+4. Automated tasks will simulate sales at predefined intervals.
+
+## Contributing :handshake:
+
+1. Fork the project.
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`).
+4. Push to the branch (`git push origin feature/AmazingFeature`).
+5. Open a Pull Request.
+
+---
+
+Give this project a :star: if you found it useful!
 
 
 
